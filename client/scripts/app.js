@@ -20,9 +20,10 @@ var App = {
   fetch: function(callback = ()=>{}) {
     Parse.readAll((data) => {
       // examine the response from the server request:
-      console.log(data);
-
-      callback();
+      // console.log(data);
+      // _.each(data.results, function(userInfo) { console.log(userInfo.username)})
+      // callback();
+      callback(data)
     });
   },
 
@@ -36,3 +37,4 @@ var App = {
     FormView.setStatus(false);
   }
 };
+
