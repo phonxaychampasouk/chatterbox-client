@@ -10,13 +10,8 @@ var RoomsView = {
   render: function() {
     //prompt the user for the new room name
     var newRoom = prompt('Whats the room gonna be called?');
-
-    //Add it to the list of room choices
     RoomsView.renderRoom(newRoom);
-
-    //Add new room to server
-    //?????????
-
+    Rooms.add(newRoom);
     // assignc current room to created room/ clear past chat
 
   },
