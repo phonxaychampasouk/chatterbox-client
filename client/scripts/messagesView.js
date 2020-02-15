@@ -14,10 +14,10 @@ var MessagesView = {
     App.fetch(function() {
       _.each(arguments[0].results, function(userInfo) {
         if (userInfo.roomname === $('#rooms').children('select').children("option:selected").val()) {
-          renderMessage(userInfo)
+          MessagesView.renderMessage(userInfo);
         }
-      })
-    })
+      });
+    });
   },
 
   renderMessage(message) {
@@ -27,6 +27,8 @@ var MessagesView = {
     // MessagesView.$chats.append(newMessage)
 
     // messageView.render;
-    MessagesView.$chats.append(MessageView.render({username: message.roomname, text: message.text}));
+    // console.log('hi');
+    MessagesView.$chats.append(MessageView.render({username: message.username, text: message.text}));
+
   }
 };
