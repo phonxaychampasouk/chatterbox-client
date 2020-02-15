@@ -21,14 +21,6 @@ var MessagesView = {
   },
 
   renderMessage(message) {
-    //add messages to the DOM'
-    // var newMessage = document.createElement('div')
-    // newMessage.append(message.username + ': ' + message.text)
-    // MessagesView.$chats.append(newMessage)
-
-    // messageView.render;
-    // console.log('hi');
     MessagesView.$chats.append(MessageView.render({username: message.username, text: message.text}));
-
   }
 };
