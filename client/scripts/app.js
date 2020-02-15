@@ -39,7 +39,7 @@ var App = {
       var rooms = ['lobby'];
       _.each(arguments[0].results, function(userInfo) {
         if (!rooms.includes(userInfo.roomname)) {
-          $('#rooms').children('select').append('<option value=' + userInfo.roomname + '>' + userInfo.roomname + '</option>');
+          $('#rooms').children('select').append('<option value="' + userInfo.roomname + '">' + userInfo.roomname + '</option>');
         }
         rooms.push(userInfo.roomname);
       });
