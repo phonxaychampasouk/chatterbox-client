@@ -10,6 +10,7 @@ var App = {
     FormView.initialize();
     RoomsView.initialize();
     MessagesView.initialize();
+    Friends.initialize();
 
     // Fetch initial batch of messages
     App.startSpinner();
@@ -27,6 +28,7 @@ var App = {
 
     //render messages for default room, lobby
     MessagesView.render();
+
 
     //Add room keys to room selector
     // _.each(Rooms, function(key) {

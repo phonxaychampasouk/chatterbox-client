@@ -2,17 +2,17 @@ var MessagesView = {
 
   $chats: $('#chats'),
 
-  initialize: function() {
-    $('#rooms').children('select').change(function() {
+  initialize: function () {
+    $('#rooms').children('select').change(function () {
       MessagesView.$chats.empty();
       MessagesView.render();
     })
   },
 
-  render: function() {
+  render: function () {
     //iterate over result array and pluch the usernames and texts for the selected lobby
-    App.fetch(function() {
-      _.each(arguments[0].results, function(userInfo) {
+    App.fetch(function () {
+      _.each(arguments[0].results, function (userInfo) {
         if (userInfo.roomname === $('#rooms').children('select').children("option:selected").val()) {
           MessagesView.renderMessage(userInfo);
         }
@@ -21,6 +21,12 @@ var MessagesView = {
   },
 
   renderMessage(message) {
-    MessagesView.$chats.append(MessageView.render({username: message.username, text: message.text}));
+    if (!MessageView.render({ username: message.username, text: message.text }).includes('<script>')) {
+      if (Friends.friends.includes(message.username)) {
+        MessagesView.$chats.append(MessageView.renderFriend({ username: message.username, text: message.text }));
+      } else {
+        MessagesView.$chats.append(MessageView.render({ username: message.username, text: message.text }));
+      }
+    }
   }
 };
