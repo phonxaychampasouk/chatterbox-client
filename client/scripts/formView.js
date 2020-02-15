@@ -9,8 +9,15 @@ var FormView = {
   handleSubmit: function(event) {
     // Stop the browser from submitting the form
     event.preventDefault();
-    console.log('click')
     //add new comment to chat
+    Parse.create(new Messages);
+
+
+
+    MessagesView.$chats.empty();
+    MessagesView.render();
+
+    ////
   },
 
   setStatus: function(active) {
