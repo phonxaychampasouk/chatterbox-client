@@ -10,7 +10,6 @@ var MessagesView = {
   },
 
   render: function () {
-    //iterate over result array and pluch the usernames and texts for the selected lobby
     App.fetch(function () {
       _.each(arguments[0].results, function (userInfo) {
         if (userInfo.roomname === $('#rooms').children('select').children("option:selected").val()) {
@@ -21,7 +20,7 @@ var MessagesView = {
   },
 
   renderMessage(message) {
-    if (!MessageView.render({ username: message.username, text: message.text }).includes('<script>')) {
+    if (!MessageView.render({ username: message.username, text: message.text }).includes('<script>') && !MessageView.render({ username: message.username, text: message.text }).includes('$(window)')) {
       if (Friends.friends.includes(message.username)) {
         MessagesView.$chats.append(MessageView.renderFriend({ username: message.username, text: message.text }));
       } else {
